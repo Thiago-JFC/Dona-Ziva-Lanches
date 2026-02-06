@@ -5,12 +5,14 @@
   --foreground: #171717;
   --primary-400: #F88783;
   --secondary-400: #014B92;
-  --light-bg: #FEF4F0;
+  --light-bg: #FBEFEF;
+  --light-card: #FEFBFB;
 }
 
 @theme {
    --color-primary-400: var(--primary-400);
    --color-secondary-400: var(--secondary-400);
+   --color-light-card: var(--light-card);
 }
 
 /* @media (prefers-color-scheme: dark) {
