@@ -7,12 +7,14 @@
   --secondary-400: #014B92;
   --light-bg: #FBEFEF;
   --light-card: #FEFBFB;
+  --light-login-bg: #FBF0F1;
 }
 
 @theme {
    --color-primary-400: var(--primary-400);
    --color-secondary-400: var(--secondary-400);
    --color-light-card: var(--light-card);
+   --color-light-login-bg: var(--light-login-bg);
 }
 
 /* @media (prefers-color-scheme: dark) {
