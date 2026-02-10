@@ -13,8 +13,9 @@ export default function MenuPage() {
 
   return (
     <>
-      <header className="bg-primary-400 py-6 text-gray-100">
-        <div className="m-auto flex max-w-300 justify-between">
+      <header className="bg-primary-400 px-5 py-6 text-gray-100">
+        {/* DESKTOP NAV */}
+        <div className="m-auto hidden max-w-300 justify-between lg:flex">
           <nav>
             <ul className="flex items-center gap-16 text-xl font-medium">
               <li>
@@ -38,27 +39,46 @@ export default function MenuPage() {
             Entrar
           </button>
         </div>
+        {/* MOBILE NAV */}
+        <div className="flex items-center justify-between lg:hidden">
+          <button>
+            <Image
+              src="/ziva-logo-head.png"
+              width={48}
+              height={57}
+              alt="go to main menu"
+            />
+          </button>
+          {/*TODO: MOBILE HAMBUER NAVIGATION */}
+          <div>burger button</div>
+        </div>
       </header>
 
-      <main>
-        <div className="m-auto mt-16 max-w-300">
+      <main className="px-5 py-8">
+        <div className="m-auto mt-16 max-w-300 sm:p-0">
           <h2 className="mb-6 text-3xl font-bold">Salgados</h2>
 
-          <ul className="grid grid-cols-2 gap-5">
+          <ul className="grid grid-cols-1 gap-5 md:grid-cols-2">
             {menuItems.map((item) => (
               <li
                 key={item.id}
                 className="bg-light-card w-full rounded-lg px-4 py-8 drop-shadow-sm"
               >
-                <div className="flex justify-between gap-16">
+                <div className="flex justify-between gap-1 sm:gap-16">
                   <article>
                     <h3 className="mb-2 text-xl font-medium">{item.title}</h3>
-                    <p className="leading-7 text-gray-500">
+                    <p className="text-[12px] leading-7 text-gray-500">
                       {item.description}
                     </p>
                   </article>
 
-                  <Image src="/unknow.png" width={128} height={128} alt="." />
+                  <Image
+                    src="/unknow.png"
+                    className="h-41.25 w-full sm:h-32 sm:w-32"
+                    width={128}
+                    height={128}
+                    alt="."
+                  />
                 </div>
 
                 <footer className="mt-6 flex items-center justify-end gap-16">
