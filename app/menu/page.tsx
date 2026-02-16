@@ -1,5 +1,6 @@
 "use client";
 import Image from "next/image";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 
 export default function MenuPage() {
@@ -85,7 +86,7 @@ export default function MenuPage() {
                   <p className="text-xl font-bold">R${item.price}</p>
 
                   <button className="bg-primary-400 text-light-card w-32 cursor-pointer rounded-4xl py-2 text-xl font-medium">
-                    Pedir
+                    <Link href={`/menu/${item.id}`}>Pedir</Link>
                   </button>
                 </footer>
               </li>
