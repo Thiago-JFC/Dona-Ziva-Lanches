@@ -16,10 +16,14 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{ children: React.ReactNode }>) {
+  modal,
+}: Readonly<{ children: React.ReactNode; modal: React.ReactNode }>) {
   return (
     <html lang="en">
-      <body className={`${poppinsSans.variable} antialiased`}>{children}</body>
+      <body className={`${poppinsSans.variable} antialiased`}>
+        {modal}
+        {children}
+      </body>
     </html>
   );
 }
