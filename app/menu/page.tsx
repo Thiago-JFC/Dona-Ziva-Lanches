@@ -1,6 +1,14 @@
 "use client";
 import Image from "next/image";
+import Link from "next/link";
 import { useEffect, useState } from "react";
+
+type Product = {
+  id: number;
+  title: string;
+  description: string;
+  price: number;
+};
 
 export default function MenuPage() {
   const [menuItems, setMenuItems] = useState([]);
@@ -59,7 +67,7 @@ export default function MenuPage() {
           <h2 className="mb-6 text-3xl font-bold">Salgados</h2>
 
           <ul className="grid grid-cols-1 gap-5 md:grid-cols-2">
-            {menuItems.map((item) => (
+            {menuItems.map((item: Product) => (
               <li
                 key={item.id}
                 className="bg-light-card w-full rounded-lg px-4 py-8 drop-shadow-sm"
@@ -84,9 +92,12 @@ export default function MenuPage() {
                 <footer className="mt-6 flex items-center justify-end gap-16">
                   <p className="text-xl font-bold">R${item.price}</p>
 
-                  <button className="bg-primary-400 text-light-card w-32 cursor-pointer rounded-4xl py-2 text-xl font-medium">
+                  <Link
+                    href={`/menu/${item.id}`}
+                    className="bg-primary-400 text-light-card w-32 cursor-pointer rounded-4xl py-2 text-center text-xl font-medium"
+                  >
                     Pedir
-                  </button>
+                  </Link>
                 </footer>
               </li>
             ))}
