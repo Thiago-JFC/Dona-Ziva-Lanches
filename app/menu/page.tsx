@@ -1,23 +1,9 @@
-"use client";
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { getAllMenuItems, MenuItem } from "@/app/lib/menu";
 
-type Product = {
-  id: number;
-  title: string;
-  description: string;
-  price: number;
-};
-
-export default function MenuPage() {
-  const [menuItems, setMenuItems] = useState([]);
-
-  useEffect(() => {
-    fetch("/api/menuItems")
-      .then((res) => res.json())
-      .then(setMenuItems);
-  }, []);
+export default async function MenuPage() {
+  const menuItems = await getAllMenuItems();
 
   return (
     <>
@@ -67,7 +53,7 @@ export default function MenuPage() {
           <h2 className="mb-6 text-3xl font-bold">Salgados</h2>
 
           <ul className="grid grid-cols-1 gap-5 md:grid-cols-2">
-            {menuItems.map((item: Product) => (
+            {menuItems.map((item: MenuItem) => (
               <li
                 key={item.id}
                 className="bg-light-card w-full rounded-lg px-4 py-8 drop-shadow-sm"
