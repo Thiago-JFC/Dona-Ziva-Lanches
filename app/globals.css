@@ -3,18 +3,36 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
-  --primary-400: #F88783;
-  --secondary-400: #014B92;
-  --light-bg: #FBEFEF;
-  --light-card: #FEFBFB;
-  --light-login-bg: #FBF0F1;
+  --primary-400: #f88783;
+  --secondary-400: #014b92;
+  --light-bg: #fbefef;
+  --light-card: #fefbfb;
+  --light-login-bg: #fbf0f1;
 }
 
 @theme {
-   --color-primary-400: var(--primary-400);
-   --color-secondary-400: var(--secondary-400);
-   --color-light-card: var(--light-card);
-   --color-light-login-bg: var(--light-login-bg);
+  --color-primary-400: var(--primary-400);
+  --color-secondary-400: var(--secondary-400);
+  --color-light-card: var(--light-card);
+  --color-light-login-bg: var(--light-login-bg);
+  --color-secondary-400: #014b92;
+}
+
+@layer utilities {
+  .text-h2 {
+    font-size: 24px;
+    font-weight: 500;
+  }
+
+  .text-p {
+    font-size: 14px;
+    line-height: 24px;
+    color: #4a4a4a;
+
+    @media (min-width: 670px) {
+      font-size: 16px;
+    }
+  }
 }
 
 /* @media (prefers-color-scheme: dark) {
