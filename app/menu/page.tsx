@@ -10,7 +10,7 @@ export default async function MenuPage() {
       <HeaderMenu />
 
       <main className="px-5 py-8">
-        <div className="m-auto mt-16 max-w-300 sm:p-0">
+        <section className="m-auto mt-16 max-w-300 sm:p-0">
           <h2 className="mb-6 text-3xl font-bold">Salgados</h2>
 
           <ul className="grid grid-cols-1 gap-5 md:grid-cols-2">
@@ -18,7 +18,7 @@ export default async function MenuPage() {
               <MenuProduct key={item.id} item={item} />
             ))}
           </ul>
-        </div>
+        </section>
       </main>
     </>
   );

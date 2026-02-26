@@ -33,7 +33,7 @@ export function MenuProduct({ item }: MenuItemsProps) {
         <p className="text-xl font-bold">R${item.price}</p>
 
         <Link
-          href={`/menu/${item.id}`}
+          href={`/menu/item/${item.id}`}
           className="bg-primary-400 text-light-card w-32 cursor-pointer rounded-4xl py-2 text-center text-xl font-medium"
         >
           Pedir
