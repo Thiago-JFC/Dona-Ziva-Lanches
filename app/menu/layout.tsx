@@ -7,8 +7,8 @@ export default function MenuLayout({
 }) {
   return (
     <>
-      {children}
       {modal}
+      {children}
     </>
   );
 }
