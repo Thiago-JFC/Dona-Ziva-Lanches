@@ -1,3 +1,5 @@
+import { CartProvider } from "./context/cartContext";
+
 export default function MenuLayout({
   children,
   modal,
@@ -9,9 +11,11 @@ export default function MenuLayout({
 }) {
   return (
     <>
-      {modal}
-      {children}
-      {sideCartSection}
+      <CartProvider>
+        {modal}
+        {children}
+        {sideCartSection}
+      </CartProvider>
     </>
   );
 }
