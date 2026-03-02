@@ -31,7 +31,7 @@ export default async function Page({
 
           <button className="shrink-0">
             <Image
-              src="/add-to-cart.svg"
+              src="/icons/add.svg"
               width="24"
               height="24"
               alt="adicionar ao carrinho"
@@ -47,7 +47,7 @@ export default async function Page({
               <label>Coca-cola 400ml (R$ 6,99)</label>
               <button>
                 <Image
-                  src="/add-to-cart.svg"
+                  src="/icons/add.svg"
                   width="24"
                   height="24"
                   alt="adicionar ao carrinho"
@@ -58,7 +58,7 @@ export default async function Page({
               <label>Coca-cola 400ml (R$ 6,99)</label>
               <button>
                 <Image
-                  src="/add-to-cart.svg"
+                  src="/icons/add.svg"
                   width="24"
                   height="24"
                   alt="adicionar ao carrinho"
@@ -69,7 +69,7 @@ export default async function Page({
               <label>Coca-cola 400ml (R$ 6,99)</label>
               <button>
                 <Image
-                  src="/add-to-cart.svg"
+                  src="/icons/add.svg"
                   width="24"
                   height="24"
                   alt="adicionar ao carrinho"
