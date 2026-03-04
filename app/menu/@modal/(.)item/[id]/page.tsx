@@ -1,4 +1,4 @@
-import { getMenuItemById } from "@/app/lib/menu";
+import { getMenuItemById } from "@/lib/menu";
 import { CloseModalButton, Modal } from "@/app/ui/modal";
 import Image from "next/image";
 import { AddItemToCartButton } from "./_components/addItemToCartButton";

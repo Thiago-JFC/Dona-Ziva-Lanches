@@ -1,6 +1,6 @@
 "use client";
 
-import { MenuItem } from "@/app/lib/menu";
+import { MenuItem } from "@/lib/menu";
 import { createContext, ReactNode, useState } from "react";
 
 export const CartContext = createContext<{

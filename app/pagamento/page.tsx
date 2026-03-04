@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { MenuItem } from "../lib/menu";
+import { MenuItem } from "../../lib/menu";
 
 const mockedCart: MenuItem[] = [
   {
