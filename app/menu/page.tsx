@@ -1,4 +1,4 @@
-import { getAllMenuItems, MenuItem } from "@/app/lib/menu";
+import { getAllMenuItems, MenuItem } from "@/lib/menu";
 import { MenuProduct } from "./_components/menuItem";
 import { HeaderMenu } from "./_components/header";
 
