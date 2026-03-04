@@ -1,5 +1,5 @@
 "use client";
-import { MenuItem } from "@/app/lib/menu";
+import { MenuItem } from "@/lib/menu";
 import { CartContext } from "@/app/menu/context/cartContext";
 import { useRouter } from "next/navigation";
 import { useContext } from "react";
