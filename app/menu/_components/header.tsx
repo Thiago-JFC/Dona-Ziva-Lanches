@@ -19,16 +19,16 @@ export function HeaderMenu() {
               </button>
             </li>
             <li className="cursor-pointer">
-              <a href="#Salgados">Salgados</a>
+              <Link href="#Salgados">Salgados</Link>
             </li>
             <li className="cursor-pointer">
-              <a href="#Bebidas">Bebidas</a>
+              <Link href="#Bebidas">Bebidas</Link>
             </li>
             <li className="cursor-pointer">
-              <a href="#Petiscos">Petiscos</a>
+              <Link href="#Petiscos">Petiscos</Link>
             </li>
             <li className="cursor-pointer">
-              <a href="#Bolos de pote">Bolos de pote</a>
+              <Link href="#Bolos de pote">Bolos de pote</Link>
             </li>
           </ul>
         </nav>
