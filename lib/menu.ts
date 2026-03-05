@@ -3,6 +3,7 @@ export type MenuItem = {
   title: string;
   description: string;
   price: number;
+  imgurl: string;
 };
 
 const mockedMenuItems: MenuItem[] = [

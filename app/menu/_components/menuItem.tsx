@@ -21,7 +21,7 @@ export function MenuProduct({ item }: MenuItemsProps) {
         </article>
 
         <Image
-          src="/unknow.png"
+          src={item.imgurl}
           className="h-41.25 w-full sm:h-32 sm:w-32"
           width={128}
           height={128}

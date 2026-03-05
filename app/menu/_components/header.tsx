@@ -18,10 +18,18 @@ export function HeaderMenu() {
                 />
               </button>
             </li>
-            <li className="cursor-pointer">Salgados</li>
-            <li className="cursor-pointer">Bebidas</li>
-            <li className="cursor-pointer">Petiscos</li>
-            <li className="cursor-pointer">Bolos de pote</li>
+            <li className="cursor-pointer">
+              <a href="#Salgados">Salgados</a>
+            </li>
+            <li className="cursor-pointer">
+              <a href="#Bebidas">Bebidas</a>
+            </li>
+            <li className="cursor-pointer">
+              <a href="#Petiscos">Petiscos</a>
+            </li>
+            <li className="cursor-pointer">
+              <a href="#Bolos de pote">Bolos de pote</a>
+            </li>
           </ul>
         </nav>
 
