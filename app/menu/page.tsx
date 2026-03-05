@@ -1,24 +1,16 @@
-import { getAllMenuItems, MenuItem } from "@/lib/menu";
-import { MenuProduct } from "./_components/menuItem";
 import { HeaderMenu } from "./_components/header";
+import { CategoryMenuSection } from "./_components/categoryMenuSection";
 
 export default async function MenuPage() {
-  const menuItems = await getAllMenuItems();
-
   return (
     <>
       <HeaderMenu />
 
-      <main className="px-5 py-8">
-        <section className="m-auto mt-16 max-w-300 sm:p-0">
-          <h2 className="mb-6 text-3xl font-bold">Salgados</h2>
-
-          <ul className="grid grid-cols-1 gap-5 md:grid-cols-2">
-            {menuItems.map((item: MenuItem) => (
-              <MenuProduct key={item.id} item={item} />
-            ))}
-          </ul>
-        </section>
+      <main className="scroll-smooth px-5 py-8">
+        <CategoryMenuSection title="Salgados" categoryId={1} />
+        <CategoryMenuSection title="Bebidas" categoryId={2} />
+        <CategoryMenuSection title="Petiscos" categoryId={3} />
+        <CategoryMenuSection title="Bolos de pote" categoryId={4} />
       </main>
     </>
   );
