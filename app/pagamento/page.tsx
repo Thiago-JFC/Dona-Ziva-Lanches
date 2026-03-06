@@ -1,16 +1,17 @@
+"use client";
 import Image from "next/image";
-import { MenuItem } from "../../lib/menu";
-
-const mockedCart: MenuItem[] = [
-  {
-    id: "23",
-    title: "Coxinha com requeijão",
-    description: "aa",
-    price: 6.99,
-  },
-];
+import { useTemporaryCart } from "@/hooks/useTemporaryCart";
+import { redirect } from "next/navigation";
 
 export default function Page() {
+  const { getStoredItems, deleteCartFromClient } = useTemporaryCart();
+  const cart = getStoredItems();
+
+  function onFinishOrder() {
+    deleteCartFromClient();
+    redirect("/pedido/andamento");
+  }
+
   return (
     <>
       <main className="bg-primary-100 min-h-screen px-4 py-16">
@@ -25,7 +26,7 @@ export default function Page() {
                 <h2 className="mb-4 text-lg font-medium">Resumo do pedido</h2>
 
                 <ul className="mb-6">
-                  {mockedCart.map((cartItem) => (
+                  {cart.map((cartItem) => (
                     <li key={cartItem.id} className="text-sm text-gray-600">
                       {cartItem.title}
                     </li>
@@ -33,7 +34,7 @@ export default function Page() {
                 </ul>
 
                 <footer>
-                  <b>Subtotal: R$ 6,99</b>
+                  <b>Subtotal: R$ x,xx</b>
                 </footer>
               </PaymentSectionCard>
             </section>
@@ -175,7 +176,10 @@ export default function Page() {
               <span className="block">Subtotal: R$ 6,99</span>
               <span className="block">Entrega: R$ 6,99</span>
               <span className="block">Total: R$ 6,99</span>
-              <button className="bg-primary-400 rounded-4xl px-10 py-4 font-bold text-white">
+              <button
+                onClick={onFinishOrder}
+                className="bg-primary-400 rounded-4xl px-10 py-4 font-bold text-white"
+              >
                 Finalizar compra
               </button>
             </PaymentSectionCard>

@@ -1,13 +1,13 @@
 "use client";
 import { SideModal } from "@/app/ui/sideModal";
 import { redirect, useRouter } from "next/navigation";
-import { useContext } from "react";
-import { CartContext } from "@/app/menu/context/cartContext";
 import { createClient } from "@/lib/supabase/client";
+import { useTemporaryCart } from "@/hooks/useTemporaryCart";
 
 export default function Page() {
   const route = useRouter();
-  const { cart } = useContext(CartContext);
+  const { getStoredItems } = useTemporaryCart();
+  const cart = getStoredItems();
 
   async function handleSignOut() {
     const supabase = createClient();
