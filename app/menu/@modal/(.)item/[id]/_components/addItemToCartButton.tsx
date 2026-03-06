@@ -1,10 +1,14 @@
 "use client";
-import { MenuItem } from "@/lib/menu";
 import { CartContext } from "@/app/menu/context/cartContext";
 import { useRouter } from "next/navigation";
 import { useContext } from "react";
+import { Database } from "@/database.types";
 
-export function AddItemToCartButton({ item }: { item: MenuItem }) {
+type IAddItemToCartButton = {
+  item: Database["public"]["Tables"]["menu_item"]["Row"];
+};
+
+export function AddItemToCartButton({ item }: IAddItemToCartButton) {
   const { addItem } = useContext(CartContext);
   const route = useRouter();
 

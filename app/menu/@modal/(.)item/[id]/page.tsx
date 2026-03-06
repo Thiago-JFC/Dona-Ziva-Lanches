@@ -1,4 +1,3 @@
-import { getMenuItemById } from "@/lib/menu";
 import { CloseModalButton, Modal } from "@/app/ui/modal";
 import Image from "next/image";
 import { AddItemToCartButton } from "./_components/addItemToCartButton";
@@ -10,19 +9,20 @@ export default async function Page({
   params: Promise<{ id: string }>;
 }) {
   const { id } = await params;
-  // const menuItem = await getMenuItemById(id);
 
   const supabase = createClient();
   const menuItem = (
-    await supabase.from("menu_item").select("").eq("id", id).single()
+    await supabase.from("menu_item").select("*").eq("id", parseInt(id)).single()
   ).data;
+
+  const menuItemImageUrl = menuItem?.imgurl ? menuItem.imgurl : "/unknow.png";
 
   if (menuItem)
     return (
       <Modal className="lg:flex lg:gap-16">
         <Image
-          className="mb-6 w-full shadow-md lg:h-128 lg:w-128"
-          src={menuItem.imgurl}
+          className="mb-6 w-full shadow-md lg:h-128 lg:w-lg"
+          src={menuItemImageUrl}
           alt="."
           width={300}
           height={300}

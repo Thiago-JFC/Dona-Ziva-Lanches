@@ -1,12 +1,12 @@
-import { MenuItem } from "@/lib/menu";
+import { Database } from "@/database.types";
 import Image from "next/image";
 import Link from "next/link";
 
-type MenuItemsProps = {
-  item: MenuItem;
-};
+type IMenuProduct = { item: Database["public"]["Tables"]["menu_item"]["Row"] };
 
-export function MenuProduct({ item }: MenuItemsProps) {
+export function MenuProduct({ item }: IMenuProduct) {
+  const productImageUrl = item.imgurl ? item.imgurl : "/unknow.png";
+
   return (
     <li
       key={item.id}
@@ -21,7 +21,7 @@ export function MenuProduct({ item }: MenuItemsProps) {
         </article>
 
         <Image
-          src={item.imgurl}
+          src={productImageUrl}
           className="h-41.25 w-full sm:h-32 sm:w-32"
           width={128}
           height={128}

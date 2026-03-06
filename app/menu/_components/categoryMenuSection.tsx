@@ -1,6 +1,5 @@
 import { createClient } from "@/lib/supabase/client";
 import { MenuProduct } from "./menuItem";
-import { MenuItem } from "@/lib/menu";
 
 type ICategoryMenuSection = {
   title: "Salgados" | "Bebidas" | "Petiscos" | "Bolos de pote";
@@ -23,7 +22,7 @@ export async function CategoryMenuSection({
         <h2 className="mb-6 text-3xl font-bold">{title}</h2>
 
         <ul className="grid grid-cols-1 gap-5 md:grid-cols-2">
-          {menuItems.data.map((item: MenuItem) => (
+          {menuItems.data.map((item) => (
             <MenuProduct key={item.id} item={item} />
           ))}
         </ul>

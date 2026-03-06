@@ -1,20 +1,22 @@
 "use client";
 
-import { MenuItem } from "@/lib/menu";
+import { Database } from "@/database.types";
 import { createContext, ReactNode, useState } from "react";
 
+type menuItem = Database["public"]["Tables"]["menu_item"]["Row"];
+
 export const CartContext = createContext<{
-  cart: MenuItem[];
-  addItem: (item: MenuItem) => void;
+  cart: menuItem[];
+  addItem: (item: menuItem) => void;
 }>({
   cart: [],
   addItem: () => {},
 });
 
 export function CartProvider({ children }: { children: ReactNode }) {
-  const [cart, setCart] = useState<MenuItem[]>([]);
+  const [cart, setCart] = useState<menuItem[]>([]);
 
-  function addItem(item: MenuItem) {
+  function addItem(item: menuItem) {
     setCart((prev) => [...prev, item]);
   }
 
