@@ -1,3 +1,4 @@
+"use client";
 import { Database } from "@/database.types";
 import { useEffect, useState } from "react";
 
