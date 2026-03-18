@@ -1,5 +1,5 @@
 "use client";
-import { CartContext } from "@/app/menu/context/cartContext";
+import { CartContext } from "@/app/(public)/menu/context/cartContext";
 import { useRouter } from "next/navigation";
 import { useContext } from "react";
 import { Database } from "@/database.types";
