@@ -76,18 +76,21 @@ export type Database = {
           created_at: string
           id: number
           payment_method: string | null
+          user_id: string | null
         }
         Insert: {
           address?: string | null
           created_at?: string
           id?: number
           payment_method?: string | null
+          user_id?: string | null
         }
         Update: {
           address?: string | null
           created_at?: string
           id?: number
           payment_method?: string | null
+          user_id?: string | null
         }
         Relationships: []
       }
@@ -132,6 +135,24 @@ export type Database = {
             referencedColumns: ["id"]
           },
         ]
+      }
+      profiles: {
+        Row: {
+          full_name: string | null
+          id: string
+          role: string | null
+        }
+        Insert: {
+          full_name?: string | null
+          id: string
+          role?: string | null
+        }
+        Update: {
+          full_name?: string | null
+          id?: string
+          role?: string | null
+        }
+        Relationships: []
       }
     }
     Views: {
