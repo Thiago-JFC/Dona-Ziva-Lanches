@@ -9,7 +9,7 @@ export default async function Layout({
   const supabase = await createClient();
   const signedInUser = await supabase.auth.getUser();
 
-  if (signedInUser.error && !signedInUser) redirect("/menu");
+  if (signedInUser.error) redirect("/menu");
 
   const user = await supabase
     .from("profiles")
@@ -17,5 +17,5 @@ export default async function Layout({
     .eq("id", signedInUser.data.user?.id)
     .single();
 
-  if (user.data.role == "attendant") return <>{children}</>;
+  if (user.data?.role == "attendant") return <>{children}</>;
 }
