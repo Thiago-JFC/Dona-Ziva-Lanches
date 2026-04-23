@@ -1,4 +1,4 @@
-import { createClient } from "@/lib/supabase/server";
+import { getUserRole } from "@/lib/auth/getUserRole";
 import { redirect } from "next/navigation";
 
 export default async function Layout({
@@ -6,16 +6,9 @@ export default async function Layout({
 }: {
   children: React.ReactNode;
 }) {
-  const supabase = await createClient();
-  const signedInUser = await supabase.auth.getUser();
+  const signedInUser = await getUserRole();
 
+  /* = TODO: PAGE DE ERROR HANDLER = */
   if (signedInUser.error) redirect("/menu");
-
-  const user = await supabase
-    .from("profiles")
-    .select("*")
-    .eq("id", signedInUser.data.user?.id)
-    .single();
-
-  if (user.data?.role == "attendant") return <>{children}</>;
+  if (signedInUser.data?.role == "attendant") return <>{children}</>;
 }
