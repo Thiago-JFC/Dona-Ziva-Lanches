@@ -30,20 +30,6 @@ export default function Page() {
             </ul>
           </section>
         ))}
-
-        {/* {
-          orderStatus.map((status) => (
-            <section key={status}>
-              <h2 className="text-2xl font-bold">{status}</h2>
-
-              <ul className="flex gap-4">
-                {orders.map((order) => {
-                  if (order.status == status)
-                    return <OrderCard orderId={order.id} key={order.id} />;
-                })}
-              </ul>
-            </section>
-        ))} */}
       </main>
     </>
   );
