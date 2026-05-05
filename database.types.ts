@@ -14,6 +14,53 @@ export type Database = {
   }
   public: {
     Tables: {
+      addresses: {
+        Row: {
+          bairro: string | null
+          CEP: string | null
+          complemento: string | null
+          created_at: string
+          id: string
+          label: string | null
+          numero_residencial: string | null
+          ponto_referencia: string | null
+          rua: string | null
+          user_id: string | null
+        }
+        Insert: {
+          bairro?: string | null
+          CEP?: string | null
+          complemento?: string | null
+          created_at?: string
+          id: string
+          label?: string | null
+          numero_residencial?: string | null
+          ponto_referencia?: string | null
+          rua?: string | null
+          user_id?: string | null
+        }
+        Update: {
+          bairro?: string | null
+          CEP?: string | null
+          complemento?: string | null
+          created_at?: string
+          id?: string
+          label?: string | null
+          numero_residencial?: string | null
+          ponto_referencia?: string | null
+          rua?: string | null
+          user_id?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "addresses_user_id_fkey"
+            columns: ["user_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       categories: {
         Row: {
           created_at: string
@@ -103,7 +150,7 @@ export type Database = {
           created_at: string
           id: number
           menu_item: number | null
-          order: number | null
+          order_id: number | null
           price: number | null
         }
         Insert: {
@@ -111,7 +158,7 @@ export type Database = {
           created_at?: string
           id?: number
           menu_item?: number | null
-          order?: number | null
+          order_id?: number | null
           price?: number | null
         }
         Update: {
@@ -119,7 +166,7 @@ export type Database = {
           created_at?: string
           id?: number
           menu_item?: number | null
-          order?: number | null
+          order_id?: number | null
           price?: number | null
         }
         Relationships: [
@@ -131,8 +178,8 @@ export type Database = {
             referencedColumns: ["id"]
           },
           {
-            foreignKeyName: "order_item_order_fkey"
-            columns: ["order"]
+            foreignKeyName: "order_item_order_id_fkey"
+            columns: ["order_id"]
             isOneToOne: false
             referencedRelation: "order"
             referencedColumns: ["id"]
@@ -141,16 +188,19 @@ export type Database = {
       }
       profiles: {
         Row: {
+          cellphone: string | null
           full_name: string | null
           id: string
           role: string | null
         }
         Insert: {
+          cellphone?: string | null
           full_name?: string | null
           id: string
           role?: string | null
         }
         Update: {
+          cellphone?: string | null
           full_name?: string | null
           id?: string
           role?: string | null
