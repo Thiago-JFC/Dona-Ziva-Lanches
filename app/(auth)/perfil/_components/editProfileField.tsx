@@ -5,15 +5,20 @@ import { EditingActionButtons } from "./EditingActionButtons";
 import { NewFieldValueInput } from "./NewFieldValueInput";
 import { Tables } from "@/database.types";
 import { useUpdateUserProfileField } from "@/hooks/useUpdateUserProfileField";
+import { EditUserAddressModal } from "./editUserAddressModal";
 
 export function EditProfileFieldContainer({
   children,
   fieldValue,
   fieldType,
+  editingType = "inline",
+  address = null,
 }: {
   children: ReactNode;
   fieldValue: string;
-  fieldType: keyof Tables<"profiles">;
+  fieldType: keyof Tables<"profiles"> | "address";
+  editingType?: "inline" | "modal";
+  address?: Tables<"addresses"> | null;
 }) {
   const [isUserEditing, setIsUserEditing] = useState<boolean>(false);
   const [editedValue, setEditedValue] = useState<string>(fieldValue);
@@ -61,16 +66,23 @@ export function EditProfileFieldContainer({
       </div>
 
       {isUserEditing ? (
-        <>
-          <NewFieldValueInput
-            fieldValue={fieldValue}
-            handleEditedValue={handleEditedValue}
+        editingType === "inline" ? (
+          <>
+            <NewFieldValueInput
+              fieldValue={fieldValue}
+              handleEditedValue={handleEditedValue}
+            />
+            <EditingActionButtons
+              handleCancel={handleCancelEditingMode}
+              handleConfirm={handleConfirmEdition}
+            />
+          </>
+        ) : (
+          <EditUserAddressModal
+            address={address as Tables<"addresses">}
+            handleEditing={handleCancelEditingMode}
           />
-          <EditingActionButtons
-            handleCancel={handleCancelEditingMode}
-            handleConfirm={handleConfirmEdition}
-          />
-        </>
+        )
       ) : (
         <EditFieldButton handleEditing={handleStartEditingMode} />
       )}

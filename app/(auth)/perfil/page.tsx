@@ -44,13 +44,16 @@ export default async function Page() {
             {userAddresses.data &&
               (userAddresses.data as Tables<"addresses">[]).map(
                 (address: Tables<"addresses">) => (
-                  <EditProfileFieldContainer key={address.id}>
+                  <EditProfileFieldContainer
+                    key={address.id}
+                    fieldValue={formatUserAddress(address)}
+                    fieldType="address"
+                    editingType="modal"
+                    address={address}
+                  >
                     <EditProfileFieldTitle>
                       {address.label}
                     </EditProfileFieldTitle>
-                    <EditProfileFieldValue>
-                      {formatUserAddress(address)}
-                    </EditProfileFieldValue>
                   </EditProfileFieldContainer>
                 ),
               )}
