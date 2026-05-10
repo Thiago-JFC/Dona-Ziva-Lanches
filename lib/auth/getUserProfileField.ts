@@ -2,12 +2,12 @@ import { createClient } from "../supabase/server";
 import { getUserAddress } from "./getUserAddress";
 import { getUserId } from "./getUserId";
 
-const supabase = await createClient();
-const fetchedUserId = await getUserId();
-
 export async function getUserProfileField(
   field: "cellphone" | "full_name" | "address",
 ) {
+  const supabase = await createClient();
+  const fetchedUserId = await getUserId();
+
   if (fetchedUserId.error) {
     return { error: fetchedUserId.error, data: null };
   }
