@@ -6,8 +6,7 @@ import { useTemporaryCart } from "@/hooks/useTemporaryCart";
 
 export default function Page() {
   const route = useRouter();
-  const { getStoredItems } = useTemporaryCart();
-  const cart = getStoredItems();
+  const { cart } = useTemporaryCart();
 
   async function handleSignOut() {
     const supabase = createClient();

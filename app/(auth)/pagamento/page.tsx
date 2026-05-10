@@ -12,8 +12,7 @@ import { Database } from "@/database.types";
 type Order = Database["public"]["Tables"]["order"]["Insert"];
 
 export default function Page() {
-  const { getStoredItems, deleteCartFromClient } = useTemporaryCart();
-  const cart = getStoredItems();
+  const { cart, deleteCartFromClient } = useTemporaryCart();
 
   async function insertOrder(order: Order) {
     const supabase = createClient();

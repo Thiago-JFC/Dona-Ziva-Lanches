@@ -2,10 +2,11 @@ import {
   EditProfileFieldContainer,
   EditProfileFieldTitle,
 } from "./_components/editProfileField";
-import { EditProfileFieldValue } from "./_components/editProfileFieldValue";
 import { getUserProfileField } from "@/lib/auth/getUserProfileField";
 import { formatUserAddress } from "@/lib/auth/formatUserAddres";
 import { Tables } from "@/database.types";
+
+export const dynamic = "force-dynamic";
 
 export default async function Page() {
   const userCellphone = await getUserProfileField("cellphone");
