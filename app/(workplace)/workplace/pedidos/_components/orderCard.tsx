@@ -3,7 +3,11 @@ import { Database, Tables } from "@/database.types";
 import { createClient } from "@/lib/supabase/client";
 import { useEffect, useState } from "react";
 
-type OrderItem = Tables<"order_item">;
+type OrderItem = Tables<"order_item"> & {
+  menu_item: {
+    title: string;
+  } | null;
+};
 type Order = Database["public"]["Tables"]["order"]["Row"];
 
 export function OrderCard({ orderId }: { orderId: number }) {
@@ -35,7 +39,7 @@ export function OrderCard({ orderId }: { orderId: number }) {
       )
       .eq("order_id", orderId)
       .then(({ data }) => {
-        if (data) setOrderItems(data);
+        if (data) setOrderItems(data as OrderItem[]);
         console.log(data);
         console.log(orderId);
       });
@@ -47,7 +51,6 @@ export function OrderCard({ orderId }: { orderId: number }) {
       {orderItems?.map((item) => (
         <div key={item.id}>
           <p className="text-sm text-gray-600">
-            {" "}
             {item.menu_item?.title} (R${item.price})
           </p>
         </div>

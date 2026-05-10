@@ -1,21 +1,22 @@
 "use client";
+
 import { Database } from "@/database.types";
 import { useEffect, useState } from "react";
 
-type menuItem = Database["public"]["Tables"]["menu_item"]["Row"];
+type MenuItem = Database["public"]["Tables"]["menu_item"]["Row"];
 
 export function useTemporaryCart() {
   const STORAGE_ITEM_NAME = "temporaryCart";
-  const [cart, setCart] = useState<menuItem[]>([]);
 
-  function getStoredItems(): menuItem[] {
-    const storedItems = localStorage.getItem(STORAGE_ITEM_NAME) ?? "[]";
-    return JSON.parse(storedItems);
-  }
+  const [cart, setCart] = useState<MenuItem[]>(() => {
+    if (typeof window === "undefined") return [];
 
-  function setCartState(item: menuItem) {
-    const storedItems = getStoredItems();
-    setCart(() => [...storedItems, item]);
+    const storedItems = localStorage.getItem(STORAGE_ITEM_NAME);
+    return storedItems ? JSON.parse(storedItems) : [];
+  });
+
+  function setCartState(item: MenuItem) {
+    setCart((prev) => [...prev, item]);
   }
 
   function deleteCartFromClient() {
@@ -24,14 +25,12 @@ export function useTemporaryCart() {
   }
 
   useEffect(() => {
-    if (cart.length != 0)
-      localStorage.setItem(STORAGE_ITEM_NAME, JSON.stringify(cart));
+    localStorage.setItem(STORAGE_ITEM_NAME, JSON.stringify(cart));
   }, [cart]);
 
   return {
     cart,
     setCartState,
-    getStoredItems,
     deleteCartFromClient,
   };
 }
